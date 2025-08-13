@@ -26,6 +26,21 @@ We present a parameter--free architecture that predicts Standard Model (SM) mass
 %=================================================================
 
 
+% Notation \& Definitions (quick reference)
+\begin{center}
+\fbox{\begin{minipage}{0.95\textwidth}\small
+\textbf{Notation \& Definitions}\par\medskip
+\begin{itemize}
+  \item $\displaystyle \varphi=\tfrac{1+\sqrt{5}}{2}$, \quad $E_{\rm coh}=\varphi^{-5}$.
+  \item $B_i$ (sector factor; e.g. charged leptons $B=1$, quarks $B=2$, weak bosons $B=4$).
+  \item $r_i\in\mathbb{Z}$ (rung index; e.g. $r_e=0$, $r_\mu=11$, $r_\tau=17$).
+  \item $f_i$ (fractional residue from the $\varphi$--sheet fixed point; no probe scale).
+  \item $g_m=\dfrac{(-1)^{m+1}}{m\,\varphi^{m}}$, \; sheet weights $w_k\propto g_{k+1}$ with $\ell^1$ normalizer $2\ln\varphi$.
+  \item Charged--lepton invariants: $I_1=Y_R^2+\Delta f_\chi(r)$ with $Y_R^2=4$, $\Delta f_\chi(r)=\dfrac{(r\bmod 8)-4}{8}$; $I_2=\dfrac{9}{76}$.
+\end{itemize}
+\end{minipage}}
+\end{center}
+
 \section{Introduction}
 The observed pattern of SM masses and mixings is usually accommodated by dozens of a priori free Yukawa parameters. In the absence of tuned textures or family symmetries, there is no accepted predictive mechanism for the numerical values themselves. This paper exhibits a minimal, measurement--anchored alternative: a parameter--free, fixed--point architecture in which integer rungs on a $\varphi$--ladder determine coarse mass separations, and a small \emph{fractional residue} $f_i$—computed from standard anomalous dimensions plus fixed ledger invariants—accounts for the remaining percent--to--ppm structure. The key difference from conventional treatments is procedural: we \emph{define} masses nonperturbatively as solutions of a local $\varphi$--cycle and then \emph{average} over a $\varphi$--sheet with signed weights tied to the same alternating gap series that encodes the ledger, thereby eliminating the arbitrary choice of probe scale and its scheme dependence. The resulting pipeline consumes only physical constants and inclusive $e^+e^-\!\to{\rm hadrons}$ information via a dispersion calculation of $\alpha_{\rm em}(\mu)$; it introduces no sector--specific knobs, priors, or fitted coefficients. The full solver and backend are implemented in a single, reproducible code path \cite{EidelmanJegerlehner1995,Jegerlehner2003,Keshavarzi2019,Davier2017,PDG2024}.
 
@@ -278,6 +293,15 @@ Both mixing matrices are determined by the integer rung map plus the closed--for
       \item Source SHA--256: \texttt{7b0b02449e5c054a40eff15af7a0c594977c-}\\\texttt{17179b5950601cf97db5e1934c2f}
       \item Compiled pyc SHA--256: \texttt{e868d7765a532b9f190b2ea1a6971b71d20628721c-}\\\texttt{fe6ceb29f4bd4a121691e2}
     \end{itemize}
+  \item How to reproduce the internal anchor run (CLI):
+  \begin{verbatim}
+  python examples/ledger_snapshot_v22c.py --anchor=ZW --tilt=SM
+  # optional A/B:
+  python examples/ledger_snapshot_v22c.py --anchor=ZW --tilt=RS
+  python examples/ledger_snapshot_v22c.py --anchor=GF
+  python examples/ledger_snapshot_v22c.py --anchor=MW
+  \end{verbatim}
+  Z/W derives the absolute unit internally (no masses, no Δm^2). Report s/E_rec for the RS bridge.
 \end{itemize}
 
 \section{Discussion and outlook}
