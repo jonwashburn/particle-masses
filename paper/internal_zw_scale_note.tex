@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{hyperref}
+\geometry{margin=1in}
+
+\title{Internal Absolute Scale from a Z/W Consistency Identity\\(No Experimental Masses, No $\Delta m^2$ Anchors)}
+\author{Team Note --- Recognition Science Ledger Framework}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We set the single absolute unit $s$ (eV per ladder unit) from inside the ledger framework, without using any experimental mass or neutrino mass--squared splitting. The method uses only (i) dimensionless ladder outputs from the same $\varphi$--sheet fixed--point solver and invariants, and (ii) a calculable tilt curve $\cos\theta_W(\mu)$ provided either by a simple SM 1--loop evolution of $(g_1,g_2)$ or, in fully internal form, by an RS placeholder that depends only on $\varphi$ and the recognition energy $E_{\rm rec}$. Solving a $Z/W$ identity for a unique energy $\mu_\star$ fixes $s=\mu_\star/m_W^{(\varphi)}$, after which all sectors inherit absolute predictions.
+\end{abstract}
+
+\paragraph{Mass law and fixed point.} For each species $i$ we keep the parameter--free law
+\[
+  m_i^{(\varphi)} = B_i\,E_{\rm coh}\,\varphi^{\,r_i+f_i},\qquad E_{\rm coh}=\varphi^{-5},\quad r_i\in\mathbb{Z},
+\]
+with the fixed point
+\[
+  \ln m_i = \ln(B_i E_{\rm coh}) + r_i\ln\varphi + f_i(\ln m_i)\,\ln\varphi,
+\]
+and $f_i$ evaluated by a $\varphi$--sheet average tied to the ledger gap series.
+
+\paragraph{Internal $Z/W$ anchor.} Let $m_W^{(\varphi)}$ and $m_Z^{(\varphi)}$ be the dimensionless ladder outputs from the same solver. Define
+\[
+  F(\mu) = \frac{m_Z^{(\varphi)}}{m_W^{(\varphi)}}\,\cos\theta_W(\mu) - 1,\qquad
+  s = \frac{\mu_\star}{m_W^{(\varphi)}}\ (\mu_\star:\ F(\mu_\star)=0).
+\]
+Two tilt providers are supported:
+\begin{itemize}
+  \item SM--like: evolve $\alpha_1,\alpha_2$ at 1--loop from $(\alpha_{\rm em},\sin^2\theta_W)$ at $M_Z$, then form $\cos\theta_W = g_2/\sqrt{g'^2+g_2^2}$ with $g'^2=\tfrac{3}{5}g_1^2$.
+  \item RS--internal: a smooth, monotone curve depending only on $\varphi$ and the recognition energy $E_{\rm rec}=\hbar c/\lambda_{\rm rec}$ with $\lambda_{\rm rec}=\sqrt{\hbar G/(\pi c^3)}$:
+  \[
+    \cos\theta_W^{\rm RS}(\mu) = \frac{1}{\sqrt{1 + c\,\bigl[\ln(\mu\,\mathrm{eV}/E_{\rm rec})\bigr]^2}},\quad c=\frac{1}{\bigl(2\ln\varphi\bigr)^2}.
+  \]
+\end{itemize}
+Both options avoid experimental masses; the RS form is entirely parameter--free.
+
+\paragraph{Deterministic pipeline.}
+\begin{enumerate}
+  \item Compute $m_i^{(\varphi)}$ from the $\varphi$--sheet fixed point (same invariants).
+  \item Solve $F(\mu)=0$ for $\mu_\star$ using the chosen $\cos\theta_W(\mu)$.
+  \item Set $s=\mu_\star/m_W^{(\varphi)}$ and output $m_i = s\,m_i^{(\varphi)}$ for all sectors.
+\end{enumerate}
+
+\paragraph{Sanity checks.} Verify $|F(\mu_\star)|\ll 10^{-10}$, report $s/E_{\rm rec}$ (dimensionless bridge), and A/B against the previous $\nu$--anchored snapshot.
+
+\end{document}
+
+
