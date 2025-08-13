@@ -22,6 +22,11 @@ from __future__ import annotations
 
 import math
 from typing import Callable, Tuple, Optional
+try:
+    # Prefer parameter-free force-ladder map if available
+    from src.force_ladder import cos_theta_w_rs_force as _cos_rs_force
+except Exception:
+    _cos_rs_force = None  # fallback to simple RS placeholder below
 
 
 # ------------------------------
@@ -212,7 +217,7 @@ def derive_scale_from_ZW(mW_phi: float,
     """
     ratio = mZ_phi / mW_phi
     if tilt_mode.upper() == 'RS':
-        provider = cos_theta_w_rs
+        provider = _cos_rs_force if _cos_rs_force is not None else cos_theta_w_rs
     else:
         provider = cos_theta_w_sm
 
