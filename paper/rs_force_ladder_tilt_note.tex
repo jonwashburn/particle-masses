@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{hyperref}
+\geometry{margin=1in}
+
+\title{RS Force–Ladder Tilt for $\cos\theta_W(\mu)$ (No Empirical Inputs)}
+\author{Internal Note — Recognition Science}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\paragraph{Goal.} Provide a parameter–free, monotone map for the weak mixing angle $\cos\theta_W(\mu)$ used by the internal Z/W anchor, derived solely from the ledger gap series and the RS recognition energy. This removes all empirical low–energy inputs from the tilt curve while preserving the Z/W consistency identity that fixes the absolute unit $s$.
+
+\paragraph{Construction.} Let $\varphi=\tfrac{1+\sqrt5}{2}$ and $g_m=\dfrac{(-1)^{m+1}}{m\,\varphi^m}$. Define the recognition length $\lambda_{\rm rec}=\sqrt{\hbar G/(\pi c^3)}$ and $E_{\rm rec}=\hbar c/\lambda_{\rm rec}$. For a physical scale $\mu$ (GeV), set
+\[
+  x(\mu) \;=\; \frac{\ln\bigl((\mu\,\mathrm{GeV})\times 10^9\,\mathrm{eV/GeV}\,/\,E_{\rm rec}\bigr)}{2\,\ln\varphi}\,.
+\]
+Define complementary ladder proxies via a smoothed alternating sum
+\[
+  a_Y(x)\;=\;\sum_{m\ge1} g_m\,\tanh\!\Bigl(\frac{x}{m}\Bigr),\qquad
+  a_2(x)\;=\;\sum_{m\ge1} g_m\,\tanh\!\Bigl(-\frac{x}{m}\Bigr),
+\]
+and map them to positive quantities $\hat\alpha_1=e^{a_Y}$ and $\hat\alpha_2=e^{a_2}$. Using the GUT group factor $g'^2=\tfrac{3}{5}g_1^2$, we set
+\[
+  \boxed{\; \cos\theta_W^{\rm RS}(\mu) \;=\; \frac{\sqrt{\hat\alpha_2(\mu)}}{\sqrt{\tfrac{3}{5}\,\hat\alpha_1(\mu)+\hat\alpha_2(\mu)}}\; }\,.
+\]
+This map is smooth, monotone on the relevant interval (tens–hundreds of GeV), and contains no empirical inputs.
+
+\paragraph{Use in the anchor.} The internal Z/W anchor solves
+\[
+  F(\mu)\;=\;\frac{m_Z^{(\varphi)}}{m_W^{(\varphi)}}\,\cos\theta_W^{\rm RS}(\mu)\; -\; 1\;=\;0\,,\qquad s\;=\;\frac{\mu_\star}{m_W^{(\varphi)}}\,.
+\]
+With $m_W^{(\varphi)}$ and $m_Z^{(\varphi)}$ the \emph{dimensionless} ladder outputs, this determines the global absolute unit $s$ internally. All sector absolutes follow as $m_i=s\,m_i^{(\varphi)}$.
+
+\paragraph{Remarks.}
+\begin{itemize}
+  \item The tanh smoothing implements a stable, scale–equivariant interpolation across ladder steps, with rapid convergence from the harmonic–geometric decay of $|g_m|$.
+  \item The recognition energy $E_{\rm rec}$ provides a natural RS reference; reporting $s/E_{\rm rec}$ yields a dimensionless bridge constant.
+  \item A full force–invariants derivation can replace the proxy exponents $a_Y,a_2$; the present form is a minimal, parameter–free realization consistent with the ledger structure.
+\end{itemize}
+
+\end{document}
+
+

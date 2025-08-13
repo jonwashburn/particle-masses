@@ -236,7 +236,13 @@ Let $m_W^{(\varphi)}$ and $m_Z^{(\varphi)}$ denote the ladder outputs. Define
   s \,=\, \frac{\mu_\star}{m_W^{(\varphi)}}\quad(\mu_\star:\ F(\mu_\star)=0),
 \]
 with $\cos\theta_W(\mu)=g_2/\sqrt{g'^2+g_2^2}$ and $g'^2=\tfrac{3}{5}g_1^2$.
-In the main runs we take $\cos\theta_W(\mu)$ from a standard two--loop electroweak flow (same block used for leptons), but one may also use a fully internal, parameter--free RS placeholder depending only on $\varphi$ and the recognition energy $E_{\rm rec}$ to verify independence from low--energy inputs. In either case, no experimental mass or $\Delta m^2$ enters.
+In the main runs we now \emph{default} to a parameter--free RS force--ladder map for $\cos\theta_W(\mu)$ built solely from the ledger gap series $g_m$ and the recognition energy $E_{\rm rec}=\hbar c/\lambda_{\rm rec}$, with $\lambda_{\rm rec}=\sqrt{\hbar G/(\pi c^3)}$. Concretely, with $x\equiv \ln(\mu\,\mathrm{eV}/E_{\rm rec})/(2\ln\varphi)$,
+\[
+  a_Y(x)=\sum_{m\ge1} g_m\,\tanh\!\Bigl(\frac{x}{m}\Bigr),\qquad
+  a_2(x)=\sum_{m\ge1} g_m\,\tanh\!\Bigl(-\frac{x}{m}\Bigr),\qquad
+  \cos\theta_W^{\rm RS}(\mu)=\frac{\sqrt{e^{a_2(x)}}}{\sqrt{\tfrac{3}{5}e^{a_Y(x)}+e^{a_2(x)}}}\,.
+\]
+The SM two--loop tilt remains available as a cross--check; in either case, no experimental mass or $\Delta m^2$ enters.
 
 Numerically $\cos\theta_W(\mu)$ is monotone on tens–hundreds of GeV, so $F(\mu)$ has a unique zero found by safeguarded bisection/Newton in $\ln\mu$. Under this $Z/W$ anchor, neutrino absolute masses become \emph{predictions}; charged--lepton and boson absolutes move only at $\lesssim10^{-4}$ relative to the $\nu$--anchored snapshot.
 
@@ -295,9 +301,9 @@ Both mixing matrices are determined by the integer rung map plus the closed--for
     \end{itemize}
   \item How to reproduce the internal anchor run (CLI):
   \begin{verbatim}
-  python examples/ledger_snapshot_v22c.py --anchor=ZW --tilt=SM
-  # optional A/B:
-  python examples/ledger_snapshot_v22c.py --anchor=ZW --tilt=RS
+  python examples/ledger_snapshot_v22c.py --anchor=ZW            # defaults to RS tilt (force-ladder)
+  # optional cross-checks:
+  python examples/ledger_snapshot_v22c.py --anchor=ZW --tilt=SM  # SM two-loop tilt
   python examples/ledger_snapshot_v22c.py --anchor=GF
   python examples/ledger_snapshot_v22c.py --anchor=MW
   \end{verbatim}
