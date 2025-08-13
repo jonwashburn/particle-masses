@@ -16,7 +16,7 @@
 \maketitle
 
 \begin{abstract}
-We present a parameter--free architecture that predicts Standard Model (SM) masses and mixings from a rung--indexed $\varphi$--ladder solved as a local fixed point. The method replaces an arbitrary probe scale with a \emph{$\varphi$--sheet} average tied to the same alternating gap coefficients that define the ledger. The only data inputs are physical constants and inclusive $e^+e^-\!\to{\rm hadrons}$ information used in a dispersion calculation of $\alpha_{\rm em}(\mu)$. Charged--lepton ratios agree with experiment at parts--per--million (ppm) after densifying the $\tau$--window in the hadronic vacuum--polarization integral; the underlying solver and invariants remain unchanged. A neutrino--anchored global scale gives absolute Dirac neutrino masses $\Sigma m_\nu\simeq 0.0605$\,eV, consistent with cosmology, and fixes $(e,\mu,\tau)$ in eV at ppm accuracy. The boson sector reproduces $Z/W$ and $H/Z$ at the $10^{-3}$ level, and quark mass ratios—evaluated ``$\varphi$--fixed'' at each species' self--consistent scale $\mu_\star$ to remove scheme bias—agree at the few$\times 10^{-3}$ level. CKM and PMNS follow from the same rung geometry without additional parameters. We provide a reproducible pipeline and a compact error budget that attribute the residuals to quadrature density in the $\tau$ window and fixed--point stability.
+We present a parameter--free architecture that predicts Standard Model (SM) masses and mixings from a rung--indexed $\varphi$--ladder solved as a local fixed point. The method replaces an arbitrary probe scale with a \emph{$\varphi$--sheet} average tied to the same alternating gap coefficients that define the ledger. The only data inputs are physical constants and inclusive $e^+e^-\!\to{\rm hadrons}$ information used in a dispersion calculation of $\alpha_{\rm em}(\mu)$. Charged--lepton ratios agree with experiment at parts--per--million (ppm) after densifying the $\tau$--window in the hadronic vacuum--polarization integral; the underlying solver and invariants remain unchanged. A neutrino--anchored global scale gives absolute Dirac neutrino masses $\Sigma m_\nu\simeq 0.0605$\,eV, consistent with cosmology, and fixes $(e,\mu,\tau)$ in eV at ppm accuracy. We also provide an \emph{internal} $Z/W$ consistency anchor that fixes the absolute unit without experimental masses or $\Delta m^2$ inputs. The boson sector reproduces $Z/W$ and $H/Z$ at the $10^{-3}$ level, and quark mass ratios—evaluated ``$\varphi$--fixed'' at each species' self--consistent scale $\mu_\star$ to remove scheme bias—agree at the few$\times 10^{-3}$ level. CKM and PMNS follow from the same rung geometry without additional parameters. We provide a reproducible pipeline and a compact error budget that attribute the residuals to quadrature density in the $\tau$ window and fixed--point stability.
 
 
 \keyword{axiomatic physics; type theory; foundations of physics; logical necessity; tautology; dark matter; cosmology} 
@@ -211,6 +211,19 @@ m_\mu=105.6584~\text{MeV},\qquad
 m_\tau=1.77686~\text{GeV},
 \]
 which inherit the ppm--level agreement established by the dispersion $\alpha_{\rm em}(\mu)$ backend and the two--loop SM running used inside the fixed--point integrals (no toggles or fits). The scale transfer introduces no new freedom: it is a single multiplicative factor fixed by $\Delta m^2_{\rm large}$ and used unchanged across sectors.
+
+\subsection{Internal absolute scale from a $Z/W$ identity (no experimental masses)}
+\label{subsec:ZW-anchor}
+The absolute unit $s$ (eV per ladder unit) can alternatively be \emph{derived internally} from a consistency identity using only (i) the \emph{dimensionless} ladder outputs for $W$ and $Z$, and (ii) a calculable $\cos\theta_W(\mu)$.
+Let $m_W^{(\varphi)}$ and $m_Z^{(\varphi)}$ denote the ladder outputs. Define
+\[
+  F(\mu) \,=\, \frac{m_Z^{(\varphi)}}{m_W^{(\varphi)}}\,\cos\theta_W(\mu)\; -\; 1,\qquad
+  s \,=\, \frac{\mu_\star}{m_W^{(\varphi)}}\quad(\mu_\star:\ F(\mu_\star)=0),
+\]
+with $\cos\theta_W(\mu)=g_2/\sqrt{g'^2+g_2^2}$ and $g'^2=\tfrac{3}{5}g_1^2$.
+In the main runs we take $\cos\theta_W(\mu)$ from a standard two--loop electroweak flow (same block used for leptons), but one may also use a fully internal, parameter--free RS placeholder depending only on $\varphi$ and the recognition energy $E_{\rm rec}$ to verify independence from low--energy inputs. In either case, no experimental mass or $\Delta m^2$ enters.
+
+Numerically $\cos\theta_W(\mu)$ is monotone on tens–hundreds of GeV, so $F(\mu)$ has a unique zero found by safeguarded bisection/Newton in $\ln\mu$. Under this $Z/W$ anchor, neutrino absolute masses become \emph{predictions}; charged--lepton and boson absolutes move only at $\lesssim10^{-4}$ relative to the $\nu$--anchored snapshot.
 
 \subsection{Boson ratios and absolutes (anchored to $M_W$)}
 Locked ratios:
