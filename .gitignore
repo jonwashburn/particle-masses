@@ -70,3 +70,7 @@ data/*.hdf5
 *.tmp
 *.bak
 .cache/
+
+# macOS resource forks
+._*
+.DS_Store
