@@ -194,7 +194,7 @@ def recognition_energy_eV() -> float:
 
 def derive_scale_from_ZW(mW_phi: float,
                          mZ_phi: float,
-                         tilt_mode: str = 'SM') -> Tuple[float, float, float]:
+                         tilt_mode: str = 'RS') -> Tuple[float, float, float]:
     """Derive (s_eV, mu_star_GeV, s_over_Erec) from Z/W consistency.
 
     Parameters

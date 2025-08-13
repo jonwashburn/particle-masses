@@ -56,8 +56,8 @@ def main():
     parser = argparse.ArgumentParser(description="Full masses snapshot with selectable anchor")
     parser.add_argument("--anchor", choices=["nu", "ZW", "GF", "MW"], default="ZW",
                         help="Anchor mode: ZW (internal), GF (Fermi), MW (W mass), nu (Δm^2)")
-    parser.add_argument("--tilt", choices=["SM", "RS"], default="SM",
-                        help="Tilt curve provider for ZW anchor: SM or RS")
+    parser.add_argument("--tilt", choices=["SM", "RS"], default="RS",
+                        help="Tilt curve provider for ZW anchor: RS (default) or SM")
     args = parser.parse_args()
 
     print("=== Full masses snapshot — v22c ===")
